@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  db:
+    image: "postgres:16"
+    environment:
+      - POSTGRES_USER=Sid
+      - POSTGRES_PASSWORD=123456789
+      - POSTGRES_DB=animal_db
+    volumes:
+      - db_data:/var/lib/postgresql/data 
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+  etl:
+    build: . 
+    depends_on:
+      - db
+    # command: "url.csv"
+
+
+
+
+volumes:
+  db_data:
