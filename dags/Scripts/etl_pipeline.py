@@ -1,6 +1,3 @@
-from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
-from datetime import datetime, timedelta
 import pandas as pd
 import requests
 import boto3
@@ -11,6 +8,9 @@ import logging
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import os
+from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
+from datetime import datetime, timedelta
 
 
 load_dotenv("./dags/secrets.env")
