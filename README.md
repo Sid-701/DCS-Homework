@@ -1,3 +1,2 @@
 # DCS-Homework
-Data center scale computing Homework
-Homework 1
+Data center scale computing lab1
