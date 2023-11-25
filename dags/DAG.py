@@ -1,6 +1,3 @@
-from airflow import DAG
-from airflow.operators.python_operator import PythonOperator
-from Scripts.etl_pipeline import perform_extraction, perform_loading, perform_transformation
 from datetime import datetime, timedelta
 import pandas as pd
 import requests
@@ -9,12 +6,15 @@ import requests
 import io
 import time
 import logging
-from sqlalchemy import create_engine
-
 import sys
 from dotenv import load_dotenv
 import os
 import warnings
+from sqlalchemy import create_engine
+from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
+from Scripts.etl_pipeline import perform_extraction, perform_loading, perform_transformation
+
 
 warnings.filterwarnings("ignore", category=DeprecationWarning) 
 
